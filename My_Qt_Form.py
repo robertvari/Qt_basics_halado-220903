@@ -18,6 +18,16 @@ class RegistrationForm(QWidget):
         self.user_name.setPlaceholderText("Name")
         main_layout.addWidget(self.user_name)
 
+        # email field
+        self.email_field = QLineEdit()
+        self.email_field.setPlaceholderText("Email")
+        main_layout.addWidget(self.email_field)
+
+        # address field
+        self.address_field = QLineEdit()
+        self.address_field.setPlaceholderText("Address")
+        main_layout.addWidget(self.address_field)
+
         # create a simple button
         self.save_user_data_bttn = QPushButton("Save User Data")
 
@@ -29,6 +39,8 @@ class RegistrationForm(QWidget):
 
     def button_clicked(self):
         print(f"Hello {self.user_name.text()}")
+        print(f"Email: {self.email_field.text()}")
+        print(f"Address: {self.address_field.text()}")
 
 
 app = QApplication(sys.argv)
