@@ -1,5 +1,5 @@
 from PySide2.QtWidgets import QWidget, QApplication, \
-    QVBoxLayout, QPushButton, QLineEdit
+    QVBoxLayout, QPushButton, QLineEdit, QMessageBox
 import sys
 
 
@@ -8,7 +8,12 @@ class RegistrationForm(QWidget):
         super().__init__()
 
         self.setWindowTitle("My Registration Form")
-        self.resize(500, 500)
+        self.resize(500, 0)
+
+        # create message window
+        self.message_box = QMessageBox()
+        self.message_box.setIcon(QMessageBox.Critical)
+        self.message_box.setWindowTitle("Error")
 
         # create root layout for other widgets
         main_layout = QVBoxLayout(self)
@@ -38,9 +43,30 @@ class RegistrationForm(QWidget):
         main_layout.addWidget(self.save_user_data_bttn)
 
     def button_clicked(self):
+        # check empty fields
+        if not self.user_name.text():
+            self.message_box.setText("Name must be filled")
+            self.message_box.show()
+            return
+
+        if not self.email_field.text():
+            self.message_box.setText("Email must be filled")
+            self.message_box.show()
+            return
+
+        if not self.address_field.text():
+            self.message_box.setText("Address must be filled")
+            self.message_box.show()
+            return
+
+
         print(f"Hello {self.user_name.text()}")
         print(f"Email: {self.email_field.text()}")
         print(f"Address: {self.address_field.text()}")
+
+        self.user_name.clear()
+        self.email_field.clear()
+        self.address_field.clear()
 
 
 app = QApplication(sys.argv)
