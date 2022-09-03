@@ -1,4 +1,5 @@
-from PySide2.QtWidgets import QWidget, QApplication, QVBoxLayout, QPushButton
+from PySide2.QtWidgets import QWidget, QApplication, \
+    QVBoxLayout, QPushButton, QLineEdit
 import sys
 
 
@@ -7,21 +8,27 @@ class RegistrationForm(QWidget):
         super().__init__()
 
         self.setWindowTitle("My Registration Form")
+        self.resize(500, 500)
 
         # create root layout for other widgets
         main_layout = QVBoxLayout(self)
 
+        # name field
+        self.user_name = QLineEdit()
+        self.user_name.setPlaceholderText("Name")
+        main_layout.addWidget(self.user_name)
+
         # create a simple button
-        save_user_data_bttn = QPushButton("Save User Data")
+        self.save_user_data_bttn = QPushButton("Save User Data")
 
         # connect to clicked event
-        save_user_data_bttn.clicked.connect(self.button_clicked)
+        self.save_user_data_bttn.clicked.connect(self.button_clicked)
 
         # add button to main_layout
-        main_layout.addWidget(save_user_data_bttn)
+        main_layout.addWidget(self.save_user_data_bttn)
 
     def button_clicked(self):
-        print("Button clicked!")
+        print(f"Hello {self.user_name.text()}")
 
 
 app = QApplication(sys.argv)
