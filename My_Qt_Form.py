@@ -14,8 +14,14 @@ class RegistrationForm(QWidget):
         # create a simple button
         save_user_data_bttn = QPushButton("Save User Data")
 
+        # connect to clicked event
+        save_user_data_bttn.clicked.connect(self.button_clicked)
+
         # add button to main_layout
         main_layout.addWidget(save_user_data_bttn)
+
+    def button_clicked(self):
+        print("Button clicked!")
 
 
 app = QApplication(sys.argv)
