@@ -2,6 +2,8 @@ from PySide2.QtWidgets import QWidget, QApplication, \
     QVBoxLayout, QPushButton, QLineEdit, QMessageBox
 import sys
 
+from widgets.name_widget import NameField
+
 
 class RegistrationForm(QWidget):
     def __init__(self):
@@ -19,9 +21,8 @@ class RegistrationForm(QWidget):
         main_layout = QVBoxLayout(self)
 
         # name field
-        self.user_name = QLineEdit()
-        self.user_name.setPlaceholderText("Name")
-        main_layout.addWidget(self.user_name)
+        self.name_field = NameField()
+        main_layout.addWidget(self.name_field)
 
         # email field
         self.email_field = QLineEdit()
@@ -44,7 +45,7 @@ class RegistrationForm(QWidget):
 
     def button_clicked(self):
         # check empty fields
-        if not self.user_name.text():
+        if not self.name_field.text_field.text():
             self.message_box.setText("Name must be filled")
             self.message_box.show()
             return
@@ -60,11 +61,11 @@ class RegistrationForm(QWidget):
             return
 
 
-        print(f"Hello {self.user_name.text()}")
+        print(f"Hello {self.name_field.text_field.text()}")
         print(f"Email: {self.email_field.text()}")
         print(f"Address: {self.address_field.text()}")
 
-        self.user_name.clear()
+        self.name_field.text_field.clear()
         self.email_field.clear()
         self.address_field.clear()
 
