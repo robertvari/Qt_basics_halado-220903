@@ -6,56 +6,35 @@ ApplicationWindow{
     title: "Registration form"
     visible: true
     width: 500
-    height: 300
+    height: 250
 
     ColumnLayout{
         spacing: 10
         anchors.fill: parent
+        anchors.margins: 10
 
-        Rectangle{
-            id: navbar
-            color: "red"
-            height: 50
+
+        TextField{
+            placeholderText: "Name"
+            font.pixelSize: 16
             Layout.fillWidth: true
-
-            Text{
-                text: "Navbar"
-                font.pixelSize: 30
-                color: "white"
-            }
         }
 
-        Rectangle{
-            id: content_container
-            color: "blue"
-            Layout.fillHeight: true
+        TextField{
+            placeholderText: "Email"
+            font.pixelSize: 16
             Layout.fillWidth: true
-
-            Text{
-                text: "Content..."
-                font.pixelSize: 30
-                color: "white"
-            }
         }
 
-        Rectangle{
-            id: footer
-            color: "gray"
-            height: 100
+        TextField{
+            placeholderText: "Address"
+            font.pixelSize: 16
             Layout.fillWidth: true
-
-            Text{
-                text: "Footer"
-                font.pixelSize: 30
-                color: "white"
-            }
         }
 
+        Button{
+            text: "Save User Data"
+            Layout.alignment: Qt.AlignHCenter
+        }
     }
-
-
-    // TextField{
-    //     placeholderText: "Name"
-    //     font.pixelSize: 16
-    // }
 }
