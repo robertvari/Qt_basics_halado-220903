@@ -2,10 +2,18 @@ import sys, os
 from PySide2.QtQml import QQmlApplicationEngine
 from PySide2.QtGui import QGuiApplication
 from PySide2.QtQuickControls2 import QQuickStyle
+from PySide2.QtCore import QObject, Slot
+
 
 APP_ROOT = os.path.dirname(__file__)
 MAIN_QML = os.path.join(APP_ROOT, "main.qml")
 QQuickStyle.setStyle("Material")
+
+
+class UserDataSaver(QObject):
+    @Slot(str, str, str, str)
+    def save_data(self, name, email, address, phone):
+        print("Python!!!", name, email, address, phone)
 
 
 class RegistrationForm:
@@ -15,6 +23,11 @@ class RegistrationForm:
 
         # instance from QtQuick engine
         self.engine = QQmlApplicationEngine()
+        self.engin_context = self.engine.rootContext()
+
+        # insert our class into rootContext
+        self.user_data_saver = UserDataSaver()
+        self.engin_context.setContextProperty("UserDataSaver", self.user_data_saver)
 
         # load .qml file
         self.engine.load(MAIN_QML)
