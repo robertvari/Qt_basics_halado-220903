@@ -1,12 +1,17 @@
 import QtQuick 2.15
 import QtQuick.Controls 2.15
 import QtQuick.Layouts 1.15
+import QtQuick.Controls.Material 2.12
+
 
 ApplicationWindow{
     title: "Registration form"
     visible: true
     width: 500
     height: 250
+
+    Material.theme: Material.Dark
+    Material.accent: Material.LightBlue
 
     ColumnLayout{
         spacing: 10
