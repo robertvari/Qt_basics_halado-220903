@@ -1,0 +1,20 @@
+            onClicked: {
+                if(name_field.text.length == 0){
+                    print("WARNING: Name field is empty")
+                    return
+                }
+
+                if(email_field.text.length == 0){
+                    print("WARNING: Email field is empty")
+                    return
+                }
+                
+                if(address_field.text.length == 0){
+                    print("WARNING: Address field is empty")
+                    return
+                }
+
+                print(name_field.text)
+                print(email_field.text)
+                print(address_field.text)
+            }

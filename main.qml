@@ -40,7 +40,7 @@ ApplicationWindow{
             Layout.fillWidth: true
         }
 
-        Button{
+        Button {
             text: "Save User Data"
             Layout.alignment: Qt.AlignHCenter
 
@@ -54,8 +54,7 @@ ApplicationWindow{
                     print("WARNING: Email field is empty")
                     return
                 }
-                
-                }
+
                 if(address_field.text.length == 0){
                     print("WARNING: Address field is empty")
                     return
