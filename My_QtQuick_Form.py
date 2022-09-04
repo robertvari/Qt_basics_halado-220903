@@ -1,4 +1,3 @@
-import imp
 import sys, os
 from PySide2.QtQml import QQmlApplicationEngine
 from PySide2.QtGui import QGuiApplication
