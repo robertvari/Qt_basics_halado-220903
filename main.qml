@@ -20,18 +20,21 @@ ApplicationWindow{
 
 
         TextField{
+            id: name_field
             placeholderText: "Name"
             font.pixelSize: 16
             Layout.fillWidth: true
         }
 
         TextField{
+            id: email_field
             placeholderText: "Email"
             font.pixelSize: 16
             Layout.fillWidth: true
         }
 
         TextField{
+            id: address_field
             placeholderText: "Address"
             font.pixelSize: 16
             Layout.fillWidth: true
@@ -40,6 +43,28 @@ ApplicationWindow{
         Button{
             text: "Save User Data"
             Layout.alignment: Qt.AlignHCenter
+
+            onClicked: {
+                if(name_field.text.length == 0){
+                    print("WARNING: Name field is empty")
+                    return
+                }
+
+                if(email_field.text.length == 0){
+                    print("WARNING: Email field is empty")
+                    return
+                }
+                
+                }
+                if(address_field.text.length == 0){
+                    print("WARNING: Address field is empty")
+                    return
+                }
+
+                print(name_field.text)
+                print(email_field.text)
+                print(address_field.text)
+            }
         }
     }
 }
