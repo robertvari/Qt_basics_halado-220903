@@ -42,7 +42,7 @@ ApplicationWindow{
 
         TextField{
             id: phone_field
-            placeholderText: "Phone: +36 20 123 456"
+            placeholderText: "Phone: +36 20 123 4567"
             font.pixelSize: 16
             Layout.fillWidth: true
             validator: RegExpValidator{regExp:/\+\d{2} \d{2} \d{3} \d{4}/}
