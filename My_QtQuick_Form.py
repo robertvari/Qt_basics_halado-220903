@@ -1,4 +1,4 @@
-import sys, os
+import sys, os, json
 from PySide2.QtQml import QQmlApplicationEngine
 from PySide2.QtGui import QGuiApplication
 from PySide2.QtQuickControls2 import QQuickStyle
@@ -13,7 +13,15 @@ QQuickStyle.setStyle("Material")
 class UserDataSaver(QObject):
     @Slot(str, str, str, str)
     def save_data(self, name, email, address, phone):
-        print("Python!!!", name, email, address, phone)
+        with open("user_data.json", "w") as f:
+            json.dump({
+                "name": name,
+                "email": email,
+                "address": address,
+                "phone": phone
+            }, f)
+
+            print("User data saved!")
 
 
 class RegistrationForm:

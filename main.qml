@@ -8,7 +8,7 @@ ApplicationWindow{
     title: "Registration form"
     visible: true
     width: 500
-    height: 250
+    height: 300
 
     Material.theme: Material.Dark
     Material.accent: Material.LightBlue
@@ -74,10 +74,17 @@ ApplicationWindow{
                     return
                 }
 
-                print(name_field.text)
-                print(email_field.text)
-                print(address_field.text)
-                print(phone_field.text)
+                UserDataSaver.save_data(
+                    name_field.text,
+                    email_field.text,
+                    address_field.text,
+                    phone_field.text
+                )
+
+                name_field.text = ""
+                email_field.text = ""
+                address_field.text = ""
+                phone_field.text = ""
             }
         }
     }
