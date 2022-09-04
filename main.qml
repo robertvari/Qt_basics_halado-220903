@@ -40,6 +40,15 @@ ApplicationWindow{
             Layout.fillWidth: true
         }
 
+        TextField{
+            id: phone_field
+            placeholderText: "Phone: +36 20 123 456"
+            font.pixelSize: 16
+            Layout.fillWidth: true
+            validator: RegExpValidator{regExp:/\+\d{2} \d{2} \d{3} \d{4}/}
+        }
+
+
         Button {
             text: "Save User Data"
             Layout.alignment: Qt.AlignHCenter
@@ -60,9 +69,15 @@ ApplicationWindow{
                     return
                 }
 
+                if(phone_field.text.length == 0){
+                    print("WARNING: Phone field is empty")
+                    return
+                }
+
                 print(name_field.text)
                 print(email_field.text)
                 print(address_field.text)
+                print(phone_field.text)
             }
         }
     }
